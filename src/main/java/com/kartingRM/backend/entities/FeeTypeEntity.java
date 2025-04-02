@@ -3,7 +3,10 @@ package com.kartingRM.backend.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.kartingRM.backend.entities.DiscountEntity;
 
+import java.util.List;
+import java.util.ArrayList;
 import jakarta.persistence.*;
 
 @Entity
@@ -23,5 +26,5 @@ public class FeeTypeEntity {
     private int lapsTime;
     private int cost;
     private int totalTime;
-    private List<Discount> discounts;
+    private List<DiscountEntity> discounts = new ArrayList<DiscountEntity>();
 }
