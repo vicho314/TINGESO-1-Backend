@@ -3,11 +3,10 @@ package com.kartingRM.backend.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-//import com.kartingRM.backend.entities.DiscountEntity;
-
-import java.util.List;
-import java.util.ArrayList;
 import jakarta.persistence.*;
+import java.util.Date;
+import java.util.List;
+import com.kartingRM.backend.entities.TransactionEntity; 
 
 @Entity
 @Table(name = "clients")
@@ -22,9 +21,14 @@ public class ClientEntity {
     private Long id;
 
     //private String category;
-    private int laps;
-    private int lapsTime;
-    private int cost;
-    private int totalTime;
-    private List<DiscountEntity> discounts = new ArrayList<DiscountEntity>();
+    @Column(unique = true, nullable = false)
+    private String rutId;
+    private String name;
+    private Date birthDay;
+    //private String rutLastDigit;
+    //amount of times the client has purchased the service in a month
+    private int purchaseMonthlyRecord;
+    @ManyToMany
+    @JoinColumn(name = "transaction_id")
+    private List<TransactionEntity> transactionsList;
 }

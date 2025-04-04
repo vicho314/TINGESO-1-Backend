@@ -3,8 +3,7 @@ package com.kartingRM.backend.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-
+import java.util.List;
 import java.util.Date;
 import jakarta.persistence.*;
 
@@ -19,13 +18,16 @@ public class DiscountEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id;
-
-    //private String category;
+    
+    private String category;
     private int groupRangeMin;
     private int groupRangeMax;
     private String freqClientCategory;
     private int totalTime;
     private String specialDayType;
     private Date specialDay;
+    private boolean atBirthDay;
     private float percent;
+    @ManyToMany
+    private List<TransactionEntity> discountTransactionList;
 }
