@@ -19,6 +19,7 @@ public class DiscountEntity{
     @Column(unique = true, nullable = false)
     private Long id;
 
+    //FIXME: ManyToOne
     private String category;
     private int groupRangeMin;
     private int groupRangeMax;

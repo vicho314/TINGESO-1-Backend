@@ -13,4 +13,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FeeTypeRepository extends JpaRepository<FeeTypeEntity, Long> {
 
+	List<FeeTypeEntity> findAllByLaps(int laps);
+	List<FeeTypeEntity> findAllByLapstime(int lapstime);
+	List<FeeTypeEntity> findByCost(int cost);
+	List<FeeTypeEntity> findByTotaltime(int totaltime);
 }

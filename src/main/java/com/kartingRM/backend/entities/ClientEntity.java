@@ -22,14 +22,13 @@ public class ClientEntity {
 
     //private String category;
     @Column(unique = true, nullable = false)
-    private String rutId;
+    private String rut;
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private Date birthDay;
     //private String rutLastDigit;
-    //amount of times the client has purchased the service in a month
-    private int purchaseMonthlyRecord;
+    private int monthlyRecord;
     @ManyToMany
     @JoinTable(
     	name = "client_transaction",

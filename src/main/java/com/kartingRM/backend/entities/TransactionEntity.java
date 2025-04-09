@@ -23,7 +23,8 @@ public class TransactionEntity {
     private Long id;
 
     //private String category;
-    private String reservationCode;
+    //@Column(unique = true, nullable = false)
+    //private String reservationCode;
     private Date reservationDate;
     @OneToOne
     @JoinColumn(name = "fee")

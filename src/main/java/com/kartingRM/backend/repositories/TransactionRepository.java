@@ -14,6 +14,12 @@ import org.springframework.data.repository.query.Param;
 //import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Date;
+
 @Repository
 public interface TransactionRepository extends JpaRepository<TransactionEntity, Long> {
+	//FIXME: findByFeeType?
+	TransactionEntity findByIdAndReservationDate(Long id, Date time);
+	//FIXME: findByClientList?
 }
