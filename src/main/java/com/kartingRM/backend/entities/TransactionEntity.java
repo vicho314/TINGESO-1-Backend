@@ -29,8 +29,13 @@ public class TransactionEntity {
     @JoinColumn(name = "fee")
     private FeeTypeEntity feeInfo;
     private int peopleAmount;
-    @ManyToMany(mappedBy = "discountTransactionList")
+    @ManyToMany
+    @JoinTable(
+        name = "transaction_discount",
+        joinColumns = @JoinColumn(name = "transaction_id"),
+        inverseJoinColumns = @JoinColumn(name = "discount_id"),
+        )
     private List<DiscountEntity> discountList;
     @ManyToMany(mappedBy = "transactionsList")
-    private List<ClientEntity> clientsList;
+    private List<ClientEntity> clientList;
 }

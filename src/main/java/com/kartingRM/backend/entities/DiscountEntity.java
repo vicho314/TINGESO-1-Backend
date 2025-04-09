@@ -18,7 +18,7 @@ public class DiscountEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id;
-    
+
     private String category;
     private int groupRangeMin;
     private int groupRangeMax;
@@ -28,6 +28,6 @@ public class DiscountEntity{
     private Date specialDay;
     private boolean atBirthDay;
     private float percent;
-    @ManyToMany
+    @ManyToMany(mappedBy = "discountList")
     private List<TransactionEntity> discountTransactionList;
 }
