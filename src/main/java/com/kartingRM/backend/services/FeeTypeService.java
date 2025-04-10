@@ -6,24 +6,43 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+import java.util.ArrayList;
+// get, save, update, delete
 @Service
 public class FeeTypeService {
     @Autowired
-    private FeeTypeRepository feeTypeRepo;
-
-    public vehiculoService(FeeTypeRepository feeTypeRepo) {
+    private FeeTypeRepository feeTypeRepo;  
+    
+    public FeeTypeService(FeeTypeRepository feeTypeRepo) {
         this.feeTypeRepo = feeTypeRepo;
     }
 
-    public int createFeeType(FeeTypeEntity newFee){
-        FeeTypeEntity foundFee = feeTypeRepo.findById(newFee.getId()).orElse(null);
-        if(foundFee != null){
-            return 0;
-        }
-        else{
-            feeTypeRepo.save(newFee);
-            return 1;
-        }
+    public FeeTypeEntity getFeeTypeById(Long id){
+	return feeTypeRepo.findById(id).get();
+    }
+
+    public List<FeeTypeEntity> getAllFeeType(){
+	return (ArrayList<FeeTypeEntity>) feeTypeRepo.findAll();
+    }
+    
+    public boolean saveFeeType(FeeTypeEntity newFee){
+        feeTypeRepo.save(newFee);
+	return true;
+    }
+
+    //FIXME: assume it already exists?
+    // Should the repo, service or controller do the check?
+    public boolean updateFeeType(FeeTypeEntity newFee){
+	feeTypeRepo.save(newFee);
+	return true;
+    }
+
+    public boolean deleteFeeType(Long id) throws Exception {
+        try {
+		feeTypeRepo.deleteById(id);
+		return true;
+	} catch (Exception e) {
+		throw new Exception(e.getMessage());
+	}
     }
 }

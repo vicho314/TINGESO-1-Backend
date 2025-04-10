@@ -26,14 +26,14 @@ public class ClientEntity {
     @Column(nullable = false)
     private String name;
     //@Column(nullable = false)
-    private Date birthDay;
+    private Date birthday;
     //private String rutLastDigit;
     private int monthlyRecord;
     @ManyToMany
     @JoinTable(
     	name = "client_transaction",
     	joinColumns = @JoinColumn(name = "client_id"),
-    	inverseJoinColumns = @JoinColumn(name = "transaction_id"),
+    	inverseJoinColumns = @JoinColumn(name = "transaction_id")
     	)
     private List<TransactionEntity> transactionsList;
 }

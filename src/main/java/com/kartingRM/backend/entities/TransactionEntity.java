@@ -34,7 +34,7 @@ public class TransactionEntity {
     @JoinTable(
         name = "transaction_discount",
         joinColumns = @JoinColumn(name = "transaction_id"),
-        inverseJoinColumns = @JoinColumn(name = "discount_id"),
+        inverseJoinColumns = @JoinColumn(name = "discount_id")
         )
     private List<DiscountEntity> discountList;
     @ManyToMany(mappedBy = "transactionsList")

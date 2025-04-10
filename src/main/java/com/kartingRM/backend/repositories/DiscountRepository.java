@@ -15,4 +15,7 @@ import java.util.List;
 @Repository
 public interface DiscountRepository extends JpaRepository<DiscountEntity, Long> {
 	List<DiscountEntity> findAllByCategory(String category);
+	//FIXME: test this thoroughly
+	@Query("SELECT DISTINCT a.category FROM DiscountEntity a ")
+	List<String> findDistinctCategory();
 }

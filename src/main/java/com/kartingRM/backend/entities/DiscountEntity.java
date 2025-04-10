@@ -19,7 +19,9 @@ public class DiscountEntity{
     @Column(unique = true, nullable = false)
     private Long id;
 
-    //FIXME: ManyToOne
+    //FIXME: ManyToOne relationship for easy categorazing
+    // findByDistinct can also do it, 
+    // but implies a full search of the data.
     private String category;
     private int groupRangeMin;
     private int groupRangeMax;

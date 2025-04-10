@@ -10,11 +10,13 @@ import org.springframework.data.repository.query.Param;
 //import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface FeeTypeRepository extends JpaRepository<FeeTypeEntity, Long> {
 
 	List<FeeTypeEntity> findAllByLaps(int laps);
-	List<FeeTypeEntity> findAllByLapstime(int lapstime);
+	List<FeeTypeEntity> findAllByLapsTime(int lapstime);
 	List<FeeTypeEntity> findByCost(int cost);
-	List<FeeTypeEntity> findByTotaltime(int totaltime);
+	List<FeeTypeEntity> findByTotalTime(int totaltime);
 }
