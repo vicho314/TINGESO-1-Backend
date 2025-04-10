@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.*;
-import java.util.Date;
+import java.time.*;
 import java.util.List;
 import com.kartingRM.backend.entities.TransactionEntity;
 
@@ -26,7 +26,7 @@ public class ClientEntity {
     @Column(nullable = false)
     private String name;
     //@Column(nullable = false)
-    private Date birthday;
+    private LocalDate birthday;
     //private String rutLastDigit;
     private int monthlyRecord;
     @ManyToMany

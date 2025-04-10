@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.util.List;
-import java.util.Date;
+import java.time.*;
 import jakarta.persistence.*;
 
 @Entity
@@ -28,7 +28,7 @@ public class DiscountEntity{
     private String freqClientCategory;
     private int totalTime;
     private String specialDayType;
-    private Date specialDay;
+    private LocalDate specialDay;
     private boolean atBirthDay;
     private float percent;
     @ManyToMany(mappedBy = "discountList")

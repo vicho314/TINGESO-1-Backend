@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import com.kartingRM.backend.entities.FeeTypeEntity;
 import com.kartingRM.backend.entities.ClientEntity;
 import com.kartingRM.backend.entities.TransactionEntity;
-import java.util.Date;
+import java.time.*;
 import java.util.List;
 import jakarta.persistence.*;
 
@@ -25,7 +25,7 @@ public class TransactionEntity {
     //private String category;
     //@Column(unique = true, nullable = false)
     //private String reservationCode;
-    private Date reservationDate;
+    private LocalDateTime reservationDate;
     @OneToOne
     @JoinColumn(name = "fee")
     private FeeTypeEntity feeInfo;

@@ -11,11 +11,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 // get, save, update, delete
 //@Service
-public class AbstractService<T,R> {
+public abstract class AbstractService<T> {
     @Autowired
-    public JpaRepository<T, Long> repo;  
-    //public R repo;  
-    
+    public JpaRepository<T, Long> repo;
+    //public R repo;
+
     //public AbstractService(JpaRepository<T,Long> repo) {
     public AbstractService(JpaRepository<T, Long> repo) {
         this.repo = repo;
@@ -28,7 +28,7 @@ public class AbstractService<T,R> {
     public List<T> getAll(){
 	return (ArrayList<T>) repo.findAll();
     }
-    
+
     public boolean save(T newFee){
         repo.save(newFee);
 	return true;
