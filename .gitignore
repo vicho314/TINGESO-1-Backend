@@ -60,3 +60,7 @@ build/
 ### vim/nano ###
 *.swap
 *.swp
+
+### misc ###
+*.bak
+*.bk
