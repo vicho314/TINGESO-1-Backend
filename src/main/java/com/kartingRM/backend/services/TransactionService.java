@@ -20,7 +20,7 @@ public class TransactionService extends AbstractService<TransactionEntity> {
 	this.transactionRepo = repo;
     }
 
-    public TransactionEntity getTransactionByIdAndDate(Long id, LocalDateTime, t){
+    public TransactionEntity getTransactionByIdAndDate(Long id, LocalDateTime t){
 	    return transactionRepo.findByIdAndReservationDate(id, t);
     }
 }
