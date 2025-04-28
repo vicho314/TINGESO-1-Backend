@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 // get, save, update, delete
 //@Service
 public abstract class AbstractService<T> {
-    @Autowired
+    //@Autowired
     public JpaRepository<T, Long> repo;
     //public R repo;
 
@@ -41,12 +41,15 @@ public abstract class AbstractService<T> {
 	return true;
     }
 
-    public boolean delete(Long id) throws Exception {
+    public boolean delete(Long id){
         try {
 		repo.deleteById(id);
 		return true;
+	
 	} catch (Exception e) {
-		throw new Exception(e.getMessage());
+		return false;
+		//throw new Exception(e.getMessage());
 	}
+	
     }
 }

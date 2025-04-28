@@ -21,5 +21,5 @@ public interface FeeTypeRepository extends JpaRepository<FeeTypeEntity, Long> {
 	//List<FeeTypeEntity> findByTotalTime(int totaltime);
 	//FIXME: test this thoroughly
 	@Query("SELECT DISTINCT a.laps FROM FeeTypeEntity a ")
-	List<String> findDistinctLaps();
+	List<Integer> findDistinctLaps();
 }

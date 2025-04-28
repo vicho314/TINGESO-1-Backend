@@ -19,7 +19,7 @@ public class DiscountController {
 	DiscountService discountService;
 
 	@GetMapping("/")
-	public List<DiscounttEntity> listDiscounts() {
+	public List<DiscountEntity> listDiscounts() {
 		return discountService.getAll();
 	}
 
@@ -33,7 +33,7 @@ public class DiscountController {
 		return discountService.getCategories();
 	}
 	
-	@GetMapping("/cat")
+	@GetMapping("/byCat")
 	public List<DiscountEntity> getDiscountsByCategory(@RequestParam String cat){
 		return discountService.getDiscountsByCategory(cat);
 	}
@@ -53,5 +53,6 @@ public class DiscountController {
 	@DeleteMapping("/{id}")
 	public boolean deleteDiscount(@PathVariable Long id){
 		boolean result = discountService.delete(id);
+		return result;
 	}
 }

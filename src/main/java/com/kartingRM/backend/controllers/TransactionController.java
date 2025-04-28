@@ -13,7 +13,7 @@ import java.time.*;
 @RestController                                                                 
 @RequestMapping("/api/v1/transaction")                                            
 @CrossOrigin("*")
-public class TransactionEntity {
+public class TransactionController {
 	//get,save,update,delete, getRut,getName, getAllBirthday
 	@Autowired
 	TransactionService transactionService;
@@ -28,9 +28,9 @@ public class TransactionEntity {
 		return transactionService.getById(id);
 	}	
 	
-	@GetMapping("/find")
-	public TransactionEntity getTransactionByIdandDate(@RequestParam Long id,@RequestParam LocalDateTime date){
-		return transactionService.getTransactionByIdandDate(id,date);
+	@GetMapping("/find/")
+	public TransactionEntity getTransactionByIdAndDate(@RequestParam Long id,@RequestParam LocalDateTime date){
+		return transactionService.getTransactionByIdAndDate(id,date);
 	}
 	
 	@PostMapping("/")
@@ -48,5 +48,6 @@ public class TransactionEntity {
 	@DeleteMapping("/{id}")
 	public boolean deleteTransaction(@PathVariable Long id){
 		boolean result = transactionService.delete(id);
+		return result;
 	}
 }

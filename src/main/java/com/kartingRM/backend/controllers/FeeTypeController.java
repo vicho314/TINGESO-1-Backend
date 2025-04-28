@@ -13,7 +13,7 @@ import java.time.*;
 @RestController                                                                 
 @RequestMapping("/api/v1/feeType")                                            
 @CrossOrigin("*")
-public class FeeTypeEntity {
+public class FeeTypeController {
 	//get,save,update,delete, getRut,getName, getAllBirthday
 	@Autowired
 	FeeTypeService feeTypeService;
@@ -28,13 +28,13 @@ public class FeeTypeEntity {
 		return feeTypeService.getById(id);
 	}
 
-	@GetMapping("/")
-	public FeeTypeEntity getFeeTypeByLap(@RequestParam int lap){
+	@GetMapping("/lap/")
+	public List<FeeTypeEntity> getFeeTypeByLap(@RequestParam int lap){
 		return feeTypeService.getFeeTypeByLap(lap);
 	}
 	
 	@GetMapping("/allCat")
-	public List<FeeTypeEntity> getLaps(){
+	public List<Integer> getLaps(){
 		return feeTypeService.getLaps();
 	}
 
@@ -53,5 +53,6 @@ public class FeeTypeEntity {
 	@DeleteMapping("/{id}")
 	public boolean deleteFeeType(@PathVariable Long id){
 		boolean result = feeTypeService.delete(id);
+		return result;
 	}
 }

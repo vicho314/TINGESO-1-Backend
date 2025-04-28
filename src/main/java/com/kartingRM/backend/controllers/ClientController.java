@@ -13,7 +13,7 @@ import java.time.*;
 @RestController                                                                 
 @RequestMapping("/api/v1/client")                                            
 @CrossOrigin("*")
-public class ClientEntity {
+public class ClientController {
 	//get,save,update,delete, getRut,getName, getAllBirthday
 	@Autowired
 	ClientService clientService;
@@ -28,19 +28,19 @@ public class ClientEntity {
 		return clientService.getById(id);
 	}
 
-	@GetMapping("/")
+	@GetMapping("/name/")
 	public ClientEntity getClientByName(@RequestParam String name){
 		return clientService.getClientByName(name);
 	}
 	
-	@GetMapping("/")
+	@GetMapping("/rut/")
 	public ClientEntity getClientByRut(@RequestParam String rut){
 		return clientService.getClientByRut(rut);
 	}
 	
-	@GetMapping("/")
-	public ClientEntity getClientAllByBirthday(@RequestParam LocalDate date){
-		return clientService.getClientAllByBirthday(date);
+	@GetMapping("/birth/")
+	public List<ClientEntity> getClientAllByBirthday(@RequestParam LocalDate birthdate){
+		return clientService.getClientAllByBirthday(birthdate);
 	}
 	
 	@PostMapping("/")
@@ -58,5 +58,6 @@ public class ClientEntity {
 	@DeleteMapping("/{id}")
 	public boolean deleteClient(@PathVariable Long id){
 		boolean result = clientService.delete(id);
+		return result;
 	}
 }
