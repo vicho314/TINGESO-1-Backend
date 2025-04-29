@@ -28,8 +28,8 @@ pipeline {
         stage('Push image to Docker Hub'){
             steps{
                 script{
-                   withCredentials([usernamePassword(credentialsId: 'passwid', passwordVariable: 'passw')]) {
-                        sh 'docker login -u vicho314 -p $passw'
+                   withCredentials([usernamePassword(credentialsId: 'passwid', usernameVariable: 'USERDOCK', passwordVariable: 'PASSWDOCK')]) {
+                        sh 'docker login -u $USERDOCK -p $PASSW'
                    }
                    sh 'docker push vicho314/kartingrm-backend:latest'
                 }
