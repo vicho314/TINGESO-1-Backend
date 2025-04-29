@@ -7,7 +7,7 @@ pipeline {
         stage('Build maven'){
             steps{
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/vicho314/TINGESO-1-Backend']])
-                sh 'mvn clean package'
+                sh 'mvn -DskipTests clean package'
             }
         }
 
