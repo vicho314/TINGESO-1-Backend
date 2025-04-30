@@ -26,7 +26,7 @@ public class DiscountEntity{
     private int groupRangeMin;
     private int groupRangeMax;
     private String freqClientCategory;
-    private int totalTime;
+    //private int totalTime;
     private String specialDayType;
     private LocalDate specialDay;
     private boolean atBirthDay;
