@@ -32,9 +32,8 @@ public class TransactionEntity {
     private int peopleAmount;
     @ManyToMany
     @JoinTable(
-        name = "transaction_discount",
-        joinColumns = @JoinColumn(name = "transaction_id"),
-        inverseJoinColumns = @JoinColumn(name = "discount_id")
+        joinColumns = @JoinColumn(name = "transactionId"),
+        inverseJoinColumns = @JoinColumn(name = "discountId")
         )
     private List<DiscountEntity> discountList;
     @ManyToMany(mappedBy = "transactionsList")
