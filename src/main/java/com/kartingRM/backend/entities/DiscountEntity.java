@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 import java.time.*;
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "discounts")
@@ -29,7 +30,7 @@ public class DiscountEntity{
     //private int totalTime;
     private String specialDayType;
     private LocalDate specialDay;
-    private boolean atBirthDay;
+    //private boolean atBirthDay;
     private float percent;
     @JsonIgnore
     @ManyToMany(mappedBy = "discountList")
