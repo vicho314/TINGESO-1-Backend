@@ -31,6 +31,7 @@ public class DiscountEntity{
     private LocalDate specialDay;
     private boolean atBirthDay;
     private float percent;
+    @JsonIgnore
     @ManyToMany(mappedBy = "discountList")
     private List<TransactionEntity> discountTransactionList;
 }
